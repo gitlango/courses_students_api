@@ -26,8 +26,7 @@ namespace StudentsAPI.Controllers
                 DataBaseInitializer.InitializeIfEmpty(context, 50);
 
                 return context.Students.Include(s => s.CourseStudents)
-                                       .ThenInclude(c => c.Course)
-                                       .ToList()
+                                       .ThenInclude(c => c.Course)                                       
                                        .Select(s => new StudentsDTO
                                                      {
                                                          Id = s.Id,
@@ -37,7 +36,8 @@ namespace StudentsAPI.Controllers
                                                             Id = c.CourseId,
                                                             Name = c.Course.Name
                                                          }).ToList(),
-                                                     });
+                                                     })
+                                       .ToList();
             }
         }
     }
