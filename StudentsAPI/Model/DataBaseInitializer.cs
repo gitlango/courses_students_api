@@ -21,7 +21,7 @@
             {
                 Student student = new();
                 student.Name = RandomFullName();
-                student.CourseStudents = RandomZeroToAllCourses(context, student).ToList();
+                student.EnrolledCourses = RandomZeroToAllCourses(context, student).ToList();
 
                 context.Students.Add(student);
             }

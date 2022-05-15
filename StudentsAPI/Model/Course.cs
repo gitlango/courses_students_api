@@ -11,6 +11,6 @@ namespace StudentsAPI.Model
         [MaxLength(100)]
         public string Name { get; set; }
 
-        public List<CourseStudent> CourseStudents { get; set; }
+        public List<CourseStudent> EnrolledStudents { get; set; }
     }
 }

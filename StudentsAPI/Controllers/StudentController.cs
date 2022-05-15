@@ -25,13 +25,13 @@ namespace StudentsAPI.Controllers
             {
                 DataBaseInitializer.InitializeIfEmpty(context, 50);
 
-                return context.Students.Include(s => s.CourseStudents)
+                return context.Students.Include(s => s.EnrolledCourses)
                                        .ThenInclude(c => c.Course)                                       
                                        .Select(s => new StudentsDTO
                                                      {
                                                          Id = s.Id,
                                                          Name = s.Name,
-                                                         Courses = s.CourseStudents.Select(c => new CourseDTO()
+                                                         Courses = s.EnrolledCourses.Select(c => new CourseDTO()
                                                          { 
                                                             Id = c.CourseId,
                                                             Name = c.Course.Name
